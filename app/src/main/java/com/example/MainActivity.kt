@@ -53,7 +53,7 @@ class MainActivity : ComponentActivity() {
                                     },
                                     icon = {
                                         Icon(
-                                            imageVector = if (user?.role == "admin") Icons.Filled.AdminPanelSettings else Icons.Filled.Dashboard,
+                                            imageVector = if (user?.role == "admin") Icons.Filled.Settings else Icons.Filled.Home,
                                             contentDescription = "لوحة التحكم"
                                         )
                                     },
@@ -71,7 +71,7 @@ class MainActivity : ComponentActivity() {
                                     NavigationBarItem(
                                         selected = currentScreen == "products",
                                         onClick = { viewModel.currentScreen.value = "products" },
-                                        icon = { Icon(imageVector = Icons.Filled.Inventory2, contentDescription = "المنتجات") },
+                                        icon = { Icon(imageVector = Icons.Filled.ShoppingCart, contentDescription = "المنتجات") },
                                         label = { Text("المنتجات", fontSize = 10.sp, fontWeight = FontWeight.Bold) },
                                         colors = NavigationBarItemDefaults.colors(
                                             selectedIconColor = RShopTheme.Primary,
@@ -85,7 +85,7 @@ class MainActivity : ComponentActivity() {
                                     NavigationBarItem(
                                         selected = currentScreen == "orders",
                                         onClick = { viewModel.currentScreen.value = "orders" },
-                                        icon = { Icon(imageVector = Icons.Filled.Assignment, contentDescription = "الطلبات") },
+                                        icon = { Icon(imageVector = Icons.Filled.List, contentDescription = "الطلبات") },
                                         label = { Text("الطلبات", fontSize = 10.sp, fontWeight = FontWeight.Bold) },
                                         colors = NavigationBarItemDefaults.colors(
                                             selectedIconColor = RShopTheme.Primary,
@@ -99,7 +99,7 @@ class MainActivity : ComponentActivity() {
                                     NavigationBarItem(
                                         selected = currentScreen == "designer",
                                         onClick = { viewModel.currentScreen.value = "designer" },
-                                        icon = { Icon(imageVector = Icons.Filled.Palette, contentDescription = "المصمم") },
+                                        icon = { Icon(imageVector = Icons.Filled.Build, contentDescription = "المصمم") },
                                         label = { Text("المصمم", fontSize = 10.sp, fontWeight = FontWeight.Bold) },
                                         colors = NavigationBarItemDefaults.colors(
                                             selectedIconColor = RShopTheme.Primary,

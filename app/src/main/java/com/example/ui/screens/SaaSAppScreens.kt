@@ -175,7 +175,7 @@ fun AuthScreen(viewModel: AppViewModel) {
                             value = subdomain,
                             onValueChange = { subdomain = it },
                             label = { Text("اسم النطاق الفرعي (e.g., ahmed-store)") },
-                            leadingIcon = { Icon(Icons.Filled.Web, contentDescription = null, tint = RShopTheme.Primary) },
+                            leadingIcon = { Icon(Icons.Filled.Home, contentDescription = null, tint = RShopTheme.Primary) },
                             colors = OutlinedTextFieldDefaults.colors(
                                 focusedBorderColor = RShopTheme.Primary,
                                 unfocusedBorderColor = RShopTheme.TextSecondary.copy(alpha = 0.3f),
@@ -346,7 +346,7 @@ fun AuthScreen(viewModel: AppViewModel) {
                         .padding(12.dp)
                 ) {
                     Column(horizontalAlignment = Alignment.CenterHorizontally, modifier = Modifier.fillMaxWidth()) {
-                        Icon(imageVector = Icons.Filled.Store, contentDescription = null, tint = RShopTheme.Primary)
+                        Icon(imageVector = Icons.Filled.Home, contentDescription = null, tint = RShopTheme.Primary)
                         Spacer(modifier = Modifier.height(4.dp))
                         Text("تاجر تجريبي (أحمد)", color = RShopTheme.TextPrimary, fontSize = 11.sp, fontWeight = FontWeight.Bold)
                         Text("ahmed@rshop.com", color = RShopTheme.TextSecondary, fontSize = 9.sp)
@@ -365,7 +365,7 @@ fun AuthScreen(viewModel: AppViewModel) {
                         .padding(12.dp)
                 ) {
                     Column(horizontalAlignment = Alignment.CenterHorizontally, modifier = Modifier.fillMaxWidth()) {
-                        Icon(imageVector = Icons.Filled.AdminPanelSettings, contentDescription = null, tint = Color(0xFF00E676))
+                        Icon(imageVector = Icons.Filled.Settings, contentDescription = null, tint = Color(0xFF00E676))
                         Spacer(modifier = Modifier.height(4.dp))
                         Text("مسؤول المنصة (Admin)", color = RShopTheme.TextPrimary, fontSize = 11.sp, fontWeight = FontWeight.Bold)
                         Text("admin@rshop.com", color = RShopTheme.TextSecondary, fontSize = 9.sp)
@@ -401,7 +401,7 @@ fun DashboardScreen(viewModel: AppViewModel) {
             GradientHeader(
                 title = "مرحباً، ${user?.fullName ?: ""}",
                 subtitle = "نطاق متجرك: ${store?.subdomain ?: ""}.rshop.com",
-                actionIcon = Icons.Filled.Logout,
+                actionIcon = Icons.Filled.Close,
                 onActionClick = { viewModel.logout() }
             )
         }
@@ -437,9 +437,9 @@ fun DashboardScreen(viewModel: AppViewModel) {
                                 color = Color.White,
                                 fontSize = 12.sp,
                                 fontWeight = FontWeight.Bold
-                            )
-                            Spacer(modifier = Modifier.width(6.dp))
-                            Icon(imageVector = Icons.Filled.Verified, contentDescription = null, tint = Color.White)
+                             )
+                             Spacer(modifier = Modifier.width(6.dp))
+                             Icon(imageVector = Icons.Filled.Check, contentDescription = null, tint = Color.White)
                         }
                     }
                 }
@@ -452,7 +452,7 @@ fun DashboardScreen(viewModel: AppViewModel) {
                         title = "إجمالي المبيعات",
                         value = "${totalSales.toInt()}",
                         unit = "دج",
-                        icon = Icons.Filled.MonetizationOn,
+                        icon = Icons.Filled.Check,
                         gradient = RShopTheme.AccentGradient,
                         modifier = Modifier.weight(1.5f)
                     )
@@ -460,7 +460,7 @@ fun DashboardScreen(viewModel: AppViewModel) {
                         title = "الطلبات النشطة",
                         value = "$totalPending",
                         unit = "طلب",
-                        icon = Icons.Filled.PendingActions,
+                        icon = Icons.Filled.Warning,
                         gradient = RShopTheme.BlueGradient,
                         modifier = Modifier.weight(1f)
                     )
@@ -473,14 +473,14 @@ fun DashboardScreen(viewModel: AppViewModel) {
                         title = "رصيد العمولات",
                         value = "${store?.balance?.toInt() ?: 0}",
                         unit = "دج",
-                        icon = Icons.Filled.AccountBalanceWallet,
+                        icon = Icons.Filled.Check,
                         gradient = RShopTheme.PurpleGradient,
                         modifier = Modifier.weight(1f)
                     )
                     StatCard(
                         title = "عدد المنتجات",
                         value = "${products.size}",
-                        icon = Icons.Filled.Category,
+                        icon = Icons.Filled.List,
                         gradient = RShopTheme.PrimaryGradient,
                         modifier = Modifier.weight(1f)
                     )
@@ -502,7 +502,7 @@ fun DashboardScreen(viewModel: AppViewModel) {
                                 .background(RShopTheme.PrimaryGradient),
                             contentAlignment = Alignment.Center
                         ) {
-                            Icon(imageVector = Icons.Filled.AutoAwesome, contentDescription = null, tint = Color.White)
+                            Icon(imageVector = Icons.Filled.Settings, contentDescription = null, tint = Color.White)
                         }
                         Text(
                             text = "التحليلات الذكية والتنبؤ بالمبيعات",
@@ -569,7 +569,7 @@ fun DashboardScreen(viewModel: AppViewModel) {
                             shape = RoundedCornerShape(10.dp),
                             modifier = Modifier.fillMaxWidth()
                         ) {
-                            Icon(imageVector = Icons.Filled.Psychology, contentDescription = null, tint = Color.White)
+                            Icon(imageVector = Icons.Filled.Info, contentDescription = null, tint = Color.White)
                             Spacer(modifier = Modifier.width(6.dp))
                             Text("تحليل ذكي مخصص ومحدث بالذكاء الاصطناعي", color = Color.White, fontWeight = FontWeight.Bold)
                         }
@@ -661,7 +661,7 @@ fun ProductsScreen(viewModel: AppViewModel) {
                     contentAlignment = Alignment.Center
                 ) {
                     Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                        Icon(imageVector = Icons.Filled.Inventory, contentDescription = null, tint = RShopTheme.TextSecondary, modifier = Modifier.size(60.dp))
+                        Icon(imageVector = Icons.Filled.ShoppingCart, contentDescription = null, tint = RShopTheme.TextSecondary, modifier = Modifier.size(60.dp))
                         Spacer(modifier = Modifier.height(12.dp))
                         Text("لا يوجد منتجات حالياً.", color = RShopTheme.TextPrimary, fontWeight = FontWeight.Bold)
                         Text("اضغط على الزر الدائري لإضافة منتجك الأول.", color = RShopTheme.TextSecondary, fontSize = 12.sp, textAlign = TextAlign.Center)
@@ -755,7 +755,7 @@ fun ProductsScreen(viewModel: AppViewModel) {
                                                 .size(22.dp)
                                                 .background(RShopTheme.CardBg, CircleShape)
                                         ) {
-                                            Icon(imageVector = Icons.Filled.Remove, contentDescription = null, tint = Color.White, modifier = Modifier.size(12.dp))
+                                            Icon(imageVector = Icons.Filled.Delete, contentDescription = null, tint = Color.White, modifier = Modifier.size(12.dp))
                                         }
                                     }
                                     Text(
@@ -900,7 +900,7 @@ fun OrdersScreen(viewModel: AppViewModel) {
                     contentAlignment = Alignment.Center
                 ) {
                     Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                        Icon(imageVector = Icons.Filled.ListAlt, contentDescription = null, tint = RShopTheme.TextSecondary, modifier = Modifier.size(60.dp))
+                        Icon(imageVector = Icons.Filled.List, contentDescription = null, tint = RShopTheme.TextSecondary, modifier = Modifier.size(60.dp))
                         Spacer(modifier = Modifier.height(12.dp))
                         Text("لا توجد طلبات مسجلة بعد.", color = RShopTheme.TextPrimary, fontWeight = FontWeight.Bold)
                         Text("يمكنك الضغط على الزر أدناه لمحاكاة إنشاء طلب عميل جديد وتجربة تدفق الرسائل الذكية.", color = RShopTheme.TextSecondary, fontSize = 11.sp, textAlign = TextAlign.Center)
@@ -1316,7 +1316,7 @@ fun DesignerScreen(viewModel: AppViewModel) {
                         contentAlignment = Alignment.Center
                     ) {
                         Row(verticalAlignment = Alignment.CenterVertically) {
-                            Icon(imageVector = Icons.Filled.GridView, contentDescription = null, tint = Color.White, modifier = Modifier.size(14.dp))
+                            Icon(imageVector = Icons.Filled.List, contentDescription = null, tint = Color.White, modifier = Modifier.size(14.dp))
                             Spacer(modifier = Modifier.width(6.dp))
                             Text("شبكة مربعات (Grid)", color = Color.White, fontSize = 11.sp)
                         }
@@ -1331,7 +1331,7 @@ fun DesignerScreen(viewModel: AppViewModel) {
                         contentAlignment = Alignment.Center
                     ) {
                         Row(verticalAlignment = Alignment.CenterVertically) {
-                            Icon(imageVector = Icons.Filled.ViewList, contentDescription = null, tint = Color.White, modifier = Modifier.size(14.dp))
+                            Icon(imageVector = Icons.Filled.List, contentDescription = null, tint = Color.White, modifier = Modifier.size(14.dp))
                             Spacer(modifier = Modifier.width(6.dp))
                             Text("قائمة متتالية (List)", color = Color.White, fontSize = 11.sp)
                         }
@@ -1358,7 +1358,7 @@ fun DesignerScreen(viewModel: AppViewModel) {
                     shape = RoundedCornerShape(10.dp),
                     modifier = Modifier.fillMaxWidth()
                 ) {
-                    Icon(imageVector = Icons.Filled.Save, contentDescription = null, tint = Color.White)
+                    Icon(imageVector = Icons.Filled.Check, contentDescription = null, tint = Color.White)
                     Spacer(modifier = Modifier.width(6.dp))
                     Text("حفظ ونشر التعديلات فوراً", color = Color.White, fontWeight = FontWeight.Bold)
                 }
@@ -1433,7 +1433,7 @@ fun DesignerScreen(viewModel: AppViewModel) {
                             horizontalArrangement = Arrangement.SpaceBetween,
                             verticalAlignment = Alignment.CenterVertically
                         ) {
-                            Icon(imageVector = Icons.Filled.ShoppingBag, contentDescription = null, tint = demoThemeColor)
+                            Icon(imageVector = Icons.Filled.ShoppingCart, contentDescription = null, tint = demoThemeColor)
                             Text(
                                 text = store?.subdomain?.uppercase() ?: "MY STORE",
                                 color = Color.White,
@@ -1522,7 +1522,7 @@ fun DesignerScreen(viewModel: AppViewModel) {
                                                     .background(demoThemeColor.copy(alpha = 0.15f)),
                                                 contentAlignment = Alignment.Center
                                             ) {
-                                                Icon(imageVector = Icons.Filled.Image, contentDescription = null, tint = demoThemeColor)
+                                                Icon(imageVector = Icons.Filled.Home, contentDescription = null, tint = demoThemeColor)
                                             }
                                             Spacer(modifier = Modifier.height(6.dp))
                                             Text(
@@ -1585,7 +1585,7 @@ fun DesignerScreen(viewModel: AppViewModel) {
                                                     .background(demoThemeColor.copy(alpha = 0.15f)),
                                                 contentAlignment = Alignment.Center
                                             ) {
-                                                Icon(imageVector = Icons.Filled.Image, contentDescription = null, tint = demoThemeColor, modifier = Modifier.size(16.dp))
+                                                Icon(imageVector = Icons.Filled.Home, contentDescription = null, tint = demoThemeColor, modifier = Modifier.size(16.dp))
                                             }
                                         }
                                     }
@@ -1632,7 +1632,7 @@ fun AdminScreen(viewModel: AppViewModel) {
             GradientHeader(
                 title = "لوحة التحكم الرئيسية للمنصة (Master Admin)",
                 subtitle = "تحكم شامل في المتاجر والمشتركين، مراقبة الإيرادات وحظر الحسابات المخالفة",
-                actionIcon = Icons.Filled.Logout,
+                actionIcon = Icons.Filled.Close,
                 onActionClick = { viewModel.logout() }
             )
         }
@@ -1645,14 +1645,14 @@ fun AdminScreen(viewModel: AppViewModel) {
                         title = "الإيرادات الشهرية المقدرة",
                         value = "${totalRevenue.toInt()}",
                         unit = "دج",
-                        icon = Icons.Filled.Dashboard,
+                        icon = Icons.Filled.Home,
                         gradient = RShopTheme.PrimaryGradient,
                         modifier = Modifier.weight(1.3f)
                     )
                     StatCard(
                         title = "المتاجر النشطة",
                         value = "$totalActiveStores",
-                        icon = Icons.Filled.Storefront,
+                        icon = Icons.Filled.Home,
                         gradient = RShopTheme.AccentGradient,
                         modifier = Modifier.weight(1f)
                     )
